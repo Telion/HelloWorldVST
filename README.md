@@ -1,2 +1,2 @@
 # HelloWorldVST
-A "Hello World" VST template project.
+A "Hello World" template project for creating a virtual instrument in VST format. The official Steinberg VST SDK is included.
