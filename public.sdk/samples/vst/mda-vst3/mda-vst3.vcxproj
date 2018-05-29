@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{484F0BDE-94C5-3C5A-B476-6E8BE595DFBE}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>mda-vst3</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\chris\Documents\git\HelloWorldVST\VST3\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">mda-vst3.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">mda-vst3</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.vst3</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\chris\Documents\git\HelloWorldVST\VST3\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">mda-vst3.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">mda-vst3</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.vst3</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\chris\Documents\git\vst3sdk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DisableSpecificWarnings>4221</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;DEVELOPMENT=1;SMTG_RENAME_ASSERT=1;VSTGUI_LIVE_EDITING=1;_UNICODE;CMAKE_INTDIR="Debug";mda_vst3_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;DEVELOPMENT=1;SMTG_RENAME_ASSERT=1;VSTGUI_LIVE_EDITING=1;_UNICODE;CMAKE_INTDIR=\"Debug\";mda_vst3_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\chris\Documents\git\vst3sdk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\chris\Documents\git\vst3sdk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+cd C:\Users\chris\Documents\git\HelloWorldVST\bin
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Users\chris\Documents\git\HelloWorldVST\bin\Debug\validator.exe C:/Users/chris/Documents/git/HelloWorldVST/VST3/Debug/mda-vst3.vst3
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>..\..\..\..\lib\Debug\base.lib;..\..\..\..\lib\Debug\sdk.lib;..\..\..\..\lib\Debug\base.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 /EXPORT:GetPluginFactory</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <ImportLibrary>C:/Users/chris/Documents/git/HelloWorldVST/lib/Debug/mda-vst3.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/chris/Documents/git/HelloWorldVST/VST3/Debug/mda-vst3.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\chris\Documents\git\vst3sdk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DisableSpecificWarnings>4221</DisableSpecificWarnings>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitFramePointers>true</OmitFramePointers>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;RELEASE=1;SMTG_RENAME_ASSERT=1;_UNICODE;CMAKE_INTDIR="Release";mda_vst3_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;RELEASE=1;SMTG_RENAME_ASSERT=1;_UNICODE;CMAKE_INTDIR=\"Release\";mda_vst3_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\chris\Documents\git\vst3sdk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\chris\Documents\git\vst3sdk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+cd C:\Users\chris\Documents\git\HelloWorldVST\bin
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\Users\chris\Documents\git\HelloWorldVST\bin\Release\validator.exe C:/Users/chris/Documents/git/HelloWorldVST/VST3/Release/mda-vst3.vst3
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>..\..\..\..\lib\Release\base.lib;..\..\..\..\lib\Release\sdk.lib;..\..\..\..\lib\Release\base.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 /EXPORT:GetPluginFactory /EXPORT:GetPluginFactory</AdditionalOptions>
+      <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/chris/Documents/git/HelloWorldVST/lib/Release/mda-vst3.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/chris/Documents/git/HelloWorldVST/VST3/Release/mda-vst3.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/chris/Documents/git/vst3sdk/public.sdk/samples/vst/mda-vst3/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/chris/Documents/git/vst3sdk -BC:/Users/chris/Documents/git/HelloWorldVST --check-stamp-file C:/Users/chris/Documents/git/HelloWorldVST/public.sdk/samples/vst/mda-vst3/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/chris/Documents/git/vst3sdk/public.sdk/samples/vst/mda-vst3/CMakeLists.txt;C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\CMakeLists.txt;C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\chris\Documents\git\HelloWorldVST\public.sdk\samples\vst\mda-vst3\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/chris/Documents/git/vst3sdk/public.sdk/samples/vst/mda-vst3/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/chris/Documents/git/vst3sdk -BC:/Users/chris/Documents/git/HelloWorldVST --check-stamp-file C:/Users/chris/Documents/git/HelloWorldVST/public.sdk/samples/vst/mda-vst3/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/chris/Documents/git/vst3sdk/public.sdk/samples/vst/mda-vst3/CMakeLists.txt;C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\CMakeLists.txt;C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\chris\Documents\git\HelloWorldVST\public.sdk\samples\vst\mda-vst3\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\helpers.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaAmbienceController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaAmbienceController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaAmbienceProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaAmbienceProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaBandistoController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaBandistoController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaBandistoProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaBandistoProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaBaseController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaBaseController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaBaseProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaBaseProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaBeatBoxController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaBeatBoxController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaBeatBoxProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaBeatBoxProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaComboController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaComboController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaComboProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaComboProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDeEsserController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDeEsserController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDeEsserProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDeEsserProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDegradeController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDegradeController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDegradeProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDegradeProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDelayController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDelayController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDelayProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDelayProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDetuneController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDetuneController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDetuneProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDetuneProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDitherController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDitherController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDitherProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDitherProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDubDelayController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDubDelayController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDubDelayProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDubDelayProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDX10Controller.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDX10Controller.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDX10Processor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDX10Processor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDynamicsController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDynamicsController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDynamicsProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaDynamicsProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaEPianoController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaEPianoController.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaEPianoData.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaEPianoProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaEPianoProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdafactory.cpp" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaImageController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaImageController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaImageProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaImageProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaJX10Controller.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaJX10Controller.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaJX10Processor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaJX10Processor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaLeslieController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaLeslieController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaLeslieProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaLeslieProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaLimiterController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaLimiterController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaLimiterProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaLimiterProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaLoudnessController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaLoudnessController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaLoudnessProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaLoudnessProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaMultiBandController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaMultiBandController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaMultiBandProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaMultiBandProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaOverdriveController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaOverdriveController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaOverdriveProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaOverdriveProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaParameter.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaParameter.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaPianoController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaPianoController.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaPianoData.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaPianoProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaPianoProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaRePsychoController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaRePsychoController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaRePsychoProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaRePsychoProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaRezFilterController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaRezFilterController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaRezFilterProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaRezFilterProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaRingModController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaRingModController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaRingModProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaRingModProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaRoundPanController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaRoundPanController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaRoundPanProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaRoundPanProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaShepardController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaShepardController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaShepardProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaShepardProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaSpecMeterController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaSpecMeterController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaSpecMeterProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaSpecMeterProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaSplitterController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaSplitterController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaSplitterProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaSplitterProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaStereoController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaStereoController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaStereoProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaStereoProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaSubSynthController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaSubSynthController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaSubSynthProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaSubSynthProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaTalkBoxController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaTalkBoxController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaTalkBoxProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaTalkBoxProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaTestToneController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaTestToneController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaTestToneProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaTestToneProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaThruZeroController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaThruZeroController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaThruZeroProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaThruZeroProcessor.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaTrackerController.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaTrackerController.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaTrackerProcessor.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\mdaTrackerProcessor.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\source\version.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\main\dllmain.cpp" />
+    <ResourceCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\mda-vst3\resource\mda-vst3.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\chris\Documents\git\HelloWorldVST\ZERO_CHECK.vcxproj">
+      <Project>{A0ADDC7D-7000-3D95-87DB-A60A93DB93EE}</Project>
+      <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\chris\Documents\git\HelloWorldVST\base\base.vcxproj">
+      <Project>{5A9BC1FB-0011-3658-82C6-EF1461B1F08A}</Project>
+      <Name>base</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\chris\Documents\git\HelloWorldVST\public.sdk\sdk.vcxproj">
+      <Project>{7ECFDF50-8FB9-3F99-940C-1FC79945D51A}</Project>
+      <Name>sdk</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\chris\Documents\git\HelloWorldVST\public.sdk\samples\vst-hosting\validator\validator.vcxproj">
+      <Project>{2E9857CD-4F00-35B2-A4BF-33A6FA5B216B}</Project>
+      <Name>validator</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

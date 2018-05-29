@@ -22,7 +22,7 @@ using namespace Steinberg::Vst;
 
 // Factory definition
 // Describes which classes comprise this plugin
-BEGIN_FACTORY_DEF("Open source software", "theinterwebs.com", "mailto:theinterwebs@aol.com")
+BEGIN_FACTORY_DEF("CompanyGoesHere", "WebsiteGoesHere", "EmailGoesHere")
 
 	DEF_CLASS2(INLINE_UID_FROM_FUID(ProcessorUid),
 		PClassInfo::kManyInstances,
@@ -32,7 +32,7 @@ BEGIN_FACTORY_DEF("Open source software", "theinterwebs.com", "mailto:theinterwe
 		PluginType,
 		VERSION,
 		kVstVersionString,
-		Steinberg::Vst::Processor::createInstance)
+		::Processor::createInstance)
 
 	DEF_CLASS2(INLINE_UID_FROM_FUID(ControllerUid),
 		PClassInfo::kManyInstances,
@@ -42,6 +42,6 @@ BEGIN_FACTORY_DEF("Open source software", "theinterwebs.com", "mailto:theinterwe
 		"", // Plugin type (not relevant here)
 		VERSION,
 		kVstVersionString,
-		Steinberg::Vst::Controller::createInstance)
+		::Controller::createInstance)
 
 END_FACTORY

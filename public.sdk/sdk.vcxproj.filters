@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\common\pluginview.cpp">
+      <Filter>public.sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\main\pluginfactoryvst3.cpp">
+      <Filter>public.sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\vst\vstaudioeffect.cpp">
+      <Filter>public.sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\vst\vstbus.cpp">
+      <Filter>public.sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\vst\vstbypassprocessor.cpp">
+      <Filter>public.sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\vst\vstcomponent.cpp">
+      <Filter>public.sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\vst\vstcomponentbase.cpp">
+      <Filter>public.sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\vst\vsteditcontroller.cpp">
+      <Filter>public.sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\vst\vstinitiids.cpp">
+      <Filter>public.sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\vst\vstnoteexpressiontypes.cpp">
+      <Filter>public.sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\vst\vstparameters.cpp">
+      <Filter>public.sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\vst\vstpresetfile.cpp">
+      <Filter>public.sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\vst\vstrepresentation.cpp">
+      <Filter>public.sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\conststringtable.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\coreiids.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\funknown.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\ustring.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\vst\utility\ringbuffer.h">
+      <Filter>public.sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\conststringtable.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\falignpop.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\falignpush.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\fplatform.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\fstrdefs.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\ftypes.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\funknown.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\futils.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\fvariant.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\geoconstants.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\ibstream.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\icloneable.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\ierrorcontext.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\ipersistent.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\ipluginbase.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\istringresult.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\iupdatehandler.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\keycodes.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\pluginbasefwd.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\smartpointer.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\ucolorspec.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\ustring.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\gui\iplugview.h">
+      <Filter>vst</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\gui\iplugviewcontentscalesupport.h">
+      <Filter>vst</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstattributes.h">
+      <Filter>vst</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstaudioprocessor.h">
+      <Filter>vst</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstautomationstate.h">
+      <Filter>vst</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstchannelcontextinfo.h">
+      <Filter>vst</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstcomponent.h">
+      <Filter>vst</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstcontextmenu.h">
+      <Filter>vst</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivsteditcontroller.h">
+      <Filter>vst</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstevents.h">
+      <Filter>vst</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivsthostapplication.h">
+      <Filter>vst</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstinterappaudio.h">
+      <Filter>vst</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstmessage.h">
+      <Filter>vst</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstmidicontrollers.h">
+      <Filter>vst</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstnoteexpression.h">
+      <Filter>vst</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstparameterchanges.h">
+      <Filter>vst</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstplugview.h">
+      <Filter>vst</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstprefetchablesupport.h">
+      <Filter>vst</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstprocesscontext.h">
+      <Filter>vst</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstrepresentation.h">
+      <Filter>vst</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstunits.h">
+      <Filter>vst</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\vstpresetkeys.h">
+      <Filter>vst</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\vstpshpack4.h">
+      <Filter>vst</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\vsttypes.h">
+      <Filter>vst</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="base">
+      <UniqueIdentifier>{503C55D8-0374-37D4-854A-EA90FE99B273}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="public.sdk">
+      <UniqueIdentifier>{7BC6BBE6-C043-3935-9F11-4BB0A3E32E35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vst">
+      <UniqueIdentifier>{4C0B9B08-A9B0-3A69-B032-2F2A2C2F0BE6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

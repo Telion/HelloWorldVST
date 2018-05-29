@@ -1,27 +1,40 @@
 #pragma once
 
 #include "public.sdk/source/vst/vstaudioeffect.h"
-
 #include "public.sdk/source/vst/vstaudioprocessoralgo.h"
-
-#include "pluginterfaces/base/ibstream.h"
-#include "pluginterfaces/base/ustring.h"
-#include "pluginterfaces/vst/ivstevents.h"
-#include "pluginterfaces/vst/ivstparameterchanges.h"
-#include "pluginterfaces/vst/vstpresetkeys.h"
-
-#include <stdio.h>
 #include "base/source/fstreamer.h"
-
 
 #include "Config.h"
 
-namespace Steinberg {
-namespace Vst {
+using namespace Steinberg;
+using namespace Steinberg::Vst;
 
+// The processor is the back-end of the plugin.
+// It does not display any UI or control any parameters.
+// It reads parameter values and outputs audio.
 class Processor : public AudioEffect
 {
-	int sampleNum = 0;
+	// The number of channels for both the input and the output.
+	// We could have a different number each, but then we have to think about how to map things.
+	const int channelCount = 1;
+
+	// The current rate of samples/sec.
+	double sampleRate;
+
+	// Your code goes here.
+	// (Optionally) read the input channels and then write to the output channels.
+	template<typename Float>
+	void ProcessImpl(Float** in, Float** out, int numSamples)
+	{
+		// This sample implementation simply outputs a quiter version of the input.
+		for (int i = 0; i < numSamples; ++i)
+		{
+			for (int j = 0; j < channelCount; ++j)
+			{
+				out[j][i] = in[j][i] / 4;
+			}
+		}
+	}
 
 public:
 	// The host calls this to create an instance (see Entry.cpp)
@@ -40,244 +53,38 @@ public:
 
 	}
 
-	// Your code goes here
+	// Outputs audio.
+	// Your code goes in ProcessImpl.
 	tresult PLUGIN_API process(ProcessData& data) SMTG_OVERRIDE
 	{
-		for (int i = 0; i < data.numOutputs; ++i)
-		{
-			void** out = getChannelBuffersPointer(processSetup, data.outputs[i]);
-			for (int j = 0; j < data.numSamples; ++j)
-			{
-				((Sample32*)out)[j] = 0;
-			}
-		}
+		// Argument validation
+		if (!ValidateProcessData_AllowedFailures(data))
+			return kResultTrue;
+		if (!ValidateProcessData_DisallowedFailures(data))
+			return kResultFalse;
 
-		//if (data.numInputs == 0 || data.numOutputs == 0)
-		//{
-		//	// nothing to do
-		//	return kResultOk;
-		//}
+		void** in = getChannelBuffersPointer(processSetup, data.inputs[0]);
+		void** out = getChannelBuffersPointer(processSetup, data.outputs[0]);
 
-		//// (simplification) we suppose in this example that we have the same input channel count than the output
-		//int32 numChannels = data.inputs[0].numChannels;
+		// If we are silent, set the correct fields and bail early.
+		if (CheckSilence(data, in, out))
+			return kResultTrue;
 
-		////---get audio buffers----------------
-		//uint32 sampleFramesSize = getSampleFramesSizeInBytes(processSetup, data.numSamples);
-		//void** in = getChannelBuffersPointer(processSetup, data.inputs[0]);
-		//void** out = getChannelBuffersPointer(processSetup, data.outputs[0]);
-
-		////---check if silence---------------
-		//// normally we have to check each channel (simplification)
-		//if (data.inputs[0].silenceFlags != 0)
-		//{
-		//	// mark output silence too
-		//	data.outputs[0].silenceFlags = data.inputs[0].silenceFlags;
-
-		//	// the Plug-in has to be sure that if it sets the flags silence that the output buffer are clear
-		//	for (int32 i = 0; i < numChannels; i++)
-		//	{
-		//		// do not need to be cleared if the buffers are the same (in this case input buffer are already cleared by the host)
-		//		if (in[i] != out[i])
-		//		{
-		//			memset(out[i], 0, sampleFramesSize);
-		//		}
-		//	}
-
-		//	// nothing to do at this point
-		//	return kResultOk;
-		//}
-
-		//// mark our outputs has not silent
-		//data.outputs[0].silenceFlags = 0;
-
-		//for (int i = 0; i < data.numSamples; ++i)
-		//{
-		//	for (int j = 0; j < data.numInputs; ++j)
-		//		((Sample32**)out)[j][i] = 0;//((Sample32**)in)[j][i] / 4;
-		//}
+		// Run ProcessImpl using either float or double, whichever is requested.
+		if (data.symbolicSampleSize == kSample32)
+			ProcessImpl<Sample32>((Sample32**)in, (Sample32**)out, data.numSamples);
+		else if (data.symbolicSampleSize == kSample64)
+			ProcessImpl<Sample64>((Sample64**)in, (Sample64**)out, data.numSamples);
 
 		return kResultOk;
-
-		//// finally the process function
-		//// In this example there are 4 steps:
-		//// 1) Read inputs parameters coming from host (in order to adapt our model values)
-		//// 2) Read inputs events coming from host (we apply a gain reduction depending of the velocity of pressed key)
-		//// 3) Process the gain of the input buffer to the output buffer
-		//// 4) Write the new VUmeter value to the output Parameters queue
-
-
-		////---1) Read inputs parameter changes-----------
-		//IParameterChanges* paramChanges = data.inputParameterChanges;
-		//if (paramChanges)
-		//{
-		//	int32 numParamsChanged = paramChanges->getParameterCount();
-		//	// for each parameter which are some changes in this audio block:
-		//	for (int32 i = 0; i < numParamsChanged; i++)
-		//	{
-		//		IParamValueQueue* paramQueue = paramChanges->getParameterData(i);
-		//		if (paramQueue)
-		//		{
-		//			ParamValue value;
-		//			int32 sampleOffset;
-		//			int32 numPoints = paramQueue->getPointCount();
-		//			switch (paramQueue->getParameterId())
-		//			{
-		//			case kGainId:
-		//				// we use in this example only the last point of the queue.
-		//				// in some wanted case for specific kind of parameter it makes sense to retrieve all points
-		//				// and process the whole audio block in small blocks.
-		//				if (paramQueue->getPoint(numPoints - 1, sampleOffset, value) == kResultTrue)
-		//				{
-		//					fGain = (float)value;
-		//				}
-		//				break;
-
-		//			case kBypassId:
-		//				if (paramQueue->getPoint(numPoints - 1, sampleOffset, value) == kResultTrue)
-		//				{
-		//					bBypass = (value > 0.5f);
-		//				}
-		//				break;
-		//			}
-		//		}
-		//	}
-		//}
-
-		////---2) Read input events-------------
-		//IEventList* eventList = data.inputEvents;
-		//if (eventList)
-		//{
-		//	int32 numEvent = eventList->getEventCount();
-		//	for (int32 i = 0; i < numEvent; i++)
-		//	{
-		//		Event event;
-		//		if (eventList->getEvent(i, event) == kResultOk)
-		//		{
-		//			switch (event.type)
-		//			{
-		//				//----------------------
-		//			case Event::kNoteOnEvent:
-		//				// use the velocity as gain modifier
-		//				fGainReduction = event.noteOn.velocity;
-		//				break;
-
-		//				//----------------------
-		//			case Event::kNoteOffEvent:
-		//				// noteOff reset the reduction
-		//				fGainReduction = 0.f;
-		//				break;
-		//			}
-		//		}
-		//	}
-		//}
-
-		////-------------------------------------
-		////---3) Process Audio---------------------
-		////-------------------------------------
-		//if (data.numInputs == 0 || data.numOutputs == 0)
-		//{
-		//	// nothing to do
-		//	return kResultOk;
-		//}
-
-		//// (simplification) we suppose in this example that we have the same input channel count than the output
-		//int32 numChannels = data.inputs[0].numChannels;
-
-		////---get audio buffers----------------
-		//uint32 sampleFramesSize = getSampleFramesSizeInBytes(processSetup, data.numSamples);
-		//void** in = getChannelBuffersPointer(processSetup, data.inputs[0]);
-		//void** out = getChannelBuffersPointer(processSetup, data.outputs[0]);
-
-		////---check if silence---------------
-		//// normally we have to check each channel (simplification)
-		//if (data.inputs[0].silenceFlags != 0)
-		//{
-		//	// mark output silence too
-		//	data.outputs[0].silenceFlags = data.inputs[0].silenceFlags;
-
-		//	// the Plug-in has to be sure that if it sets the flags silence that the output buffer are clear
-		//	for (int32 i = 0; i < numChannels; i++)
-		//	{
-		//		// do not need to be cleared if the buffers are the same (in this case input buffer are already cleared by the host)
-		//		if (in[i] != out[i])
-		//		{
-		//			memset(out[i], 0, sampleFramesSize);
-		//		}
-		//	}
-
-		//	// nothing to do at this point
-		//	return kResultOk;
-		//}
-
-		//// mark our outputs has not silent
-		//data.outputs[0].silenceFlags = 0;
-
-		////---in bypass mode outputs should be like inputs-----
-		//if (bBypass)
-		//{
-		//	for (int32 i = 0; i < numChannels; i++)
-		//	{
-		//		// do not need to be copied if the buffers are the same
-		//		if (in[i] != out[i])
-		//		{
-		//			memcpy(out[i], in[i], sampleFramesSize);
-		//		}
-		//	}
-		//	// in this example we do not update the VuMeter in Bypass
-		//}
-		//else
-		//{
-		//	float fVuPPM = 0.f;
-
-		//	//---apply gain factor----------
-		//	float gain = (fGain - fGainReduction);
-		//	if (bHalfGain)
-		//	{
-		//		gain = gain * 0.5f;
-		//	}
-
-		//	// if the applied gain is nearly zero, we could say that the outputs are zeroed and we set the silence flags. 
-		//	if (gain < 0.0000001)
-		//	{
-		//		for (int32 i = 0; i < numChannels; i++)
-		//		{
-		//			memset(out[i], 0, sampleFramesSize);
-		//		}
-		//		data.outputs[0].silenceFlags = (1 << numChannels) - 1;  // this will set to 1 all channels
-		//	}
-		//	else
-		//	{
-		//		if (data.symbolicSampleSize == kSample32)
-		//			fVuPPM = processAudio<Sample32>((Sample32**)in, (Sample32**)out, numChannels,
-		//				data.numSamples, gain);
-		//		else
-		//			fVuPPM = processAudio<Sample64>((Sample64**)in, (Sample64**)out, numChannels,
-		//				data.numSamples, gain);
-		//	}
-
-		//	//---3) Write outputs parameter changes-----------
-		//	IParameterChanges* outParamChanges = data.outputParameterChanges;
-		//	// a new value of VuMeter will be send to the host 
-		//	// (the host will send it back in sync to our controller for updating our editor)
-		//	if (outParamChanges && fVuPPMOld != fVuPPM)
-		//	{
-		//		int32 index = 0;
-		//		IParamValueQueue* paramQueue = outParamChanges->addParameterData(kVuPPMId, index);
-		//		if (paramQueue)
-		//		{
-		//			int32 index2 = 0;
-		//			paramQueue->addPoint(0, fVuPPM, index2);
-		//		}
-		//	}
-		//	fVuPPMOld = fVuPPM;
-		//}
-
-		//return kResultOk;
 	}
 
 	// Runs before process for some reason
 	tresult PLUGIN_API setupProcessing(ProcessSetup& newSetup) SMTG_OVERRIDE
 	{
+		// This does not seem to be included in Process, so we have to save it here.
+		sampleRate = newSetup.sampleRate;
+
 		return AudioEffect::setupProcessing(newSetup);
 	}
 
@@ -291,13 +98,9 @@ public:
 			return result;
 		}
 
-		//---create Audio In/Out buses------
-		// we want a stereo Input and a Stereo Output
-		//addAudioInput(STR16("Stereo In"), SpeakerArr::kStereo);
+		// Create our default inputs and outputs.
+		addAudioInput(STR16("Mono In"), SpeakerArr::kMono);
 		addAudioOutput(STR16("Mono Out"), SpeakerArr::kMono);
-
-		//---create Event In/Out buses (1 bus with only 1 channel)------
-		//addEventInput(STR16("Event In"), 1);
 
 		return kResultOk;
 	}
@@ -308,27 +111,15 @@ public:
 		return AudioEffect::terminate();
 	}
 
-	// Enable or disable the plugin
-	tresult PLUGIN_API setActive(TBool state) SMTG_OVERRIDE
-	{
-		sendTextMessage(state ? "Activating now" : "Deactivating now");
-
-		// call our parent setActive
-		return AudioEffect::setActive(state);
-	}
-
-	// Receives a message from the controller (for communication outside of regular parameters)
-	tresult receiveText(const char* text) SMTG_OVERRIDE
-	{
-		return kResultOk;
-	}
-
 	// Write all of our model state into streamer.
 	tresult PLUGIN_API getState(IBStream* state) SMTG_OVERRIDE
 	{
 		IBStreamer streamer(state, kLittleEndian);
 
-		return kResultOk;
+		if (!streamer.writeDouble(sampleRate))
+			return kResultFalse;
+
+		return kResultTrue;
 	}
 
 	// Loads all of the state back into this object.
@@ -336,64 +127,94 @@ public:
 	{
 		IBStreamer streamer(state, kLittleEndian);
 
-		return kResultOk;
+		if (!streamer.readDouble(sampleRate))
+			return kResultFalse;
+
+		return kResultTrue;
 	}
 
 	// Negotiates with the host to determine which audio streams to use.
+	// The host offers a possible arrangement. Return true if you used it or false if you did not match the request.
+	// In either case, you are free to modify your own arrangement.
+	// This is somewhat complicated and may be unnecessary.
 	tresult PLUGIN_API setBusArrangements(SpeakerArrangement* inputs, int32 numIns, SpeakerArrangement* outputs, int32 numOuts) SMTG_OVERRIDE
 	{
+		// Do not attempt to accommodate the wrong numbers of inputs/outputs. Keep it simple.
+		if (numIns != 1 || numOuts != 1)
+			return kResultFalse;
+ 
+		// Get our current bus arrangement.
+		// Even though we know that the host has requested 1 input and 1 output, we apparently still have to use their exact speaker positions
+		AudioBus* bus = FCast<AudioBus>(audioInputs[0]);
+		if (!bus || bus->getArrangement() != inputs[0])
+		{
+			// The host requested 1 input 1 output, but the arrangement they gave us is different.
+			// Remove our own arrangement and use theirs instead.
+			removeAudioBusses();
+			addAudioInput(STR16("Mono In"), inputs[0]);
+			addAudioOutput(STR16("Mono Out"), inputs[0]);
+		}
+
 		return kResultTrue;
-
-		//if (numIns != 1 || numOuts != 1)
-		//	return kResultFalse;
-
-		//// This plugin is mono. Get our current input and compare to 
-		//AudioBus* bus = FCast<AudioBus>(audioInputs.at(0));
-		//if (bus)
-		//{
-		//	if (bus->getArrangement() != inputs[0])
-		//	{
-		//		removeAudioBusses();
-		//		addAudioInput(STR16("Mono In"), inputs[0]);
-		//		addAudioOutput(STR16("Mono Out"), inputs[0]);
-		//	}
-		//	return kResultOk;
-		//}
-
-		//return kResultFalse;
 	}
 
 	// Declare which floating point types we support.
 	tresult PLUGIN_API canProcessSampleSize(int32 symbolicSampleSize) SMTG_OVERRIDE
 	{
-		return symbolicSampleSize == kSample32/* || symbolicSampleSize == kSample64*/ ? true : false;
+		// Remove kSample32 or kSample64 if necessary for your plugin, but you should really support both.
+		return symbolicSampleSize == kSample32 || symbolicSampleSize == kSample64 ? kResultTrue : kResultFalse;
 	}
 
-	// Receives a message? Not sure why
-	tresult PLUGIN_API notify(IMessage* message) SMTG_OVERRIDE
+private:
+	// Helper function to validate the data before running Process.
+	// If this validation fails, Process should return kResultTrue.
+	bool ValidateProcessData_AllowedFailures(ProcessData& data)
 	{
-		if (!message)
-			return kInvalidArgument;
+		if (data.numInputs == 0)
+			return false;
 
-		//if (!strcmp(message->getMessageID(), "BinaryMessage"))
-		//{
-		//	const void* data;
-		//	uint32 size;
-		//	if (message->getAttributes()->getBinary("MyData", data, size) == kResultOk)
-		//	{
-		//		// we are in UI thread
-		//		// size should be 100
-		//		if (size == 100 && ((char*)data)[1] == 1) // yeah...
-		//		{
-		//			fprintf(stderr, "[AGain] received the binary message!\n");
-		//		}
-		//		return kResultOk;
-		//	}
-		//}
+		if (data.numOutputs == 0)
+			return false;
 
-		return AudioEffect::notify(message);
+		return true;
+	}
+
+	// Helper function to validate the data before running Process.
+	// If this validation fails, Process should return kResultFalse.
+	bool ValidateProcessData_DisallowedFailures(ProcessData& data)
+	{
+		if (data.inputs[0].numChannels < channelCount)
+			return false;
+
+		if (data.outputs[0].numChannels < channelCount)
+			return false;
+
+		return true;
+	}
+
+	// Helper function for Process to check for silence and resolve it in a trivial way.
+	bool CheckSilence(ProcessData& data, void** in, void** out)
+	{
+		unsigned bufferSize = getSampleFramesSizeInBytes(processSetup, data.numSamples);
+
+		if (data.inputs[0].silenceFlags != 0)
+		{
+			// Clear the output buffers (to actually make it silent)
+			for (int32 i = 0; i < channelCount; ++i)
+			{
+				if (in[i] != out[i])
+				{
+					memset(out[i], 0, bufferSize);
+				}
+			}
+
+			// We have to mark the output as silent.
+			// This seems pointless now, but it is nontrivial for multichannel or multi-input scenarios.
+			data.outputs[0].silenceFlags = data.inputs[0].silenceFlags;
+			return true;
+		}
+
+		data.outputs[0].silenceFlags = 0;
+		return false;
 	}
 };
-
-}
-}

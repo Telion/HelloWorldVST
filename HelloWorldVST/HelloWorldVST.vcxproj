@@ -163,9 +163,8 @@
     <ClInclude Include="Config.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="..\vst3sdk\public.sdk\source\main\dllmain.cpp" />
     <ClCompile Include="Entry.cpp" />
-    <ClCompile Include="HelloWorldVST.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

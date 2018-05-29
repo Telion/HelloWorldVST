@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\programchange\source\plug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\programchange\source\plugcontroller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\programchange\source\plugentry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\main\dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\programchange\source\plug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\programchange\source\plugcids.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\programchange\source\plugcontroller.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\programchange\source\plugparamids.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\programchange\source\version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\programchange\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\samples\vst\programchange\resource\plug.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{9F549663-179A-34BC-8666-F5427803FD79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{7D5D2763-AC7C-3796-8B12-5A6BA958B6A2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

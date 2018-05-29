@@ -2,9 +2,6 @@
 
 #include "pluginterfaces/base/funknown.h"
 
-namespace Steinberg {
-namespace Vst {
-
 // Our version number
 #define VERSION "0.0.1"
 
@@ -17,6 +14,3 @@ class Controller;
 
 static const FUID ProcessorUid = FUID(0x12345678, 0x23456789, 0x3456789A, 0x456789AB);
 class Processor;
-
-}
-}

@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7ECFDF50-8FB9-3F99-940C-1FC79945D51A}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>sdk</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\chris\Documents\git\HelloWorldVST\lib\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">sdk.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">sdk</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\chris\Documents\git\HelloWorldVST\lib\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">sdk.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">sdk</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\chris\Documents\git\vst3sdk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;DEVELOPMENT=1;SMTG_RENAME_ASSERT=1;_UNICODE;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;DEVELOPMENT=1;SMTG_RENAME_ASSERT=1;_UNICODE;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\chris\Documents\git\vst3sdk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\chris\Documents\git\vst3sdk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\chris\Documents\git\vst3sdk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitFramePointers>true</OmitFramePointers>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;RELEASE=1;SMTG_RENAME_ASSERT=1;_UNICODE;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;RELEASE=1;SMTG_RENAME_ASSERT=1;_UNICODE;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\chris\Documents\git\vst3sdk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\chris\Documents\git\vst3sdk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/chris/Documents/git/vst3sdk/public.sdk/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/chris/Documents/git/vst3sdk -BC:/Users/chris/Documents/git/HelloWorldVST --check-stamp-file C:/Users/chris/Documents/git/HelloWorldVST/public.sdk/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/chris/Documents/git/vst3sdk/public.sdk/CMakeLists.txt;C:\Users\chris\Documents\git\vst3sdk\public.sdk\CMakeLists.txt;C:\Users\chris\Documents\git\vst3sdk\public.sdk\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\chris\Documents\git\HelloWorldVST\public.sdk\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/chris/Documents/git/vst3sdk/public.sdk/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/chris/Documents/git/vst3sdk -BC:/Users/chris/Documents/git/HelloWorldVST --check-stamp-file C:/Users/chris/Documents/git/HelloWorldVST/public.sdk/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/chris/Documents/git/vst3sdk/public.sdk/CMakeLists.txt;C:\Users\chris\Documents\git\vst3sdk\public.sdk\CMakeLists.txt;C:\Users\chris\Documents\git\vst3sdk\public.sdk\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\chris\Documents\git\HelloWorldVST\public.sdk\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\common\pluginview.cpp" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\main\pluginfactoryvst3.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\vst\utility\ringbuffer.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\vst\vstaudioeffect.cpp" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\vst\vstbus.cpp" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\vst\vstbypassprocessor.cpp" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\vst\vstcomponent.cpp" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\vst\vstcomponentbase.cpp" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\vst\vsteditcontroller.cpp" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\vst\vstinitiids.cpp" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\vst\vstnoteexpressiontypes.cpp" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\vst\vstparameters.cpp" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\vst\vstpresetfile.cpp" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\public.sdk\source\vst\vstrepresentation.cpp" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\conststringtable.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\conststringtable.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\coreiids.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\falignpop.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\falignpush.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\fplatform.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\fstrdefs.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\ftypes.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\funknown.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\funknown.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\futils.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\fvariant.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\geoconstants.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\ibstream.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\icloneable.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\ierrorcontext.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\ipersistent.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\ipluginbase.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\istringresult.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\iupdatehandler.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\keycodes.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\pluginbasefwd.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\smartpointer.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\ucolorspec.h" />
+    <ClCompile Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\ustring.cpp" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\base\ustring.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\gui\iplugview.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\gui\iplugviewcontentscalesupport.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstattributes.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstaudioprocessor.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstautomationstate.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstchannelcontextinfo.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstcomponent.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstcontextmenu.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivsteditcontroller.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstevents.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivsthostapplication.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstinterappaudio.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstmessage.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstmidicontrollers.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstnoteexpression.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstparameterchanges.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstplugview.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstprefetchablesupport.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstprocesscontext.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstrepresentation.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\ivstunits.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\vstpresetkeys.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\vstpshpack4.h" />
+    <ClInclude Include="C:\Users\chris\Documents\git\vst3sdk\pluginterfaces\vst\vsttypes.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\chris\Documents\git\HelloWorldVST\ZERO_CHECK.vcxproj">
+      <Project>{A0ADDC7D-7000-3D95-87DB-A60A93DB93EE}</Project>
+      <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\chris\Documents\git\HelloWorldVST\base\base.vcxproj">
+      <Project>{5A9BC1FB-0011-3658-82C6-EF1461B1F08A}</Project>
+      <Name>base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
