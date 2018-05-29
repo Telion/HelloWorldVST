@@ -3,7 +3,7 @@ A basic "Hello World" style Visual Studio 2017 project for creating a virtual in
 
 # To build the SDK
 - Install CMake (and make sure it is in your Path)
-- Create a build folder next to the SDK
+- Create a build folder next to the SDK (recommended name: build_sdk)
 - From inside the build folder, run 'cmake -G"Visual Studio 15 2017 Win64" ../vst3sdk'
 - Open the .sln file that now exists in your build folder. In Visual Studio 2017, build the solution.
 
