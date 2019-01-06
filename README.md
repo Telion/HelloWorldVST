@@ -22,4 +22,4 @@ A basic "Hello World" style Visual Studio 2017 project for creating a virtual in
 - Build from Visual Studio
 
 # To run validation as a build step
-- Add "$(MSBuildProjectDirectory)\build_sdk\bin\Debug\validator.exe $(MSBuildProjectDirectory)\VersatileSynth\x64\Debug\VersatileSynth.vst3" as a post-build step. (Repeat for Release if needed.)
+- Add "$(MSBuildProjectDirectory)\\..\build_sdk\bin\Debug\validator.exe $(MSBuildProjectDirectory)\\..\VersatileSynth\x64\Debug\VersatileSynth.vst3" as a post-build step. (Repeat for Release if needed.)
