@@ -16,6 +16,7 @@ A basic "Hello World" style Visual Studio 2017 project for creating a virtual in
 - Add a .def file
 - Add "$(MSBuildProjectDirectory)\\..\vst3sdk;$(MSBuildProjectDirectory)\\..\vst3sdk\vstgui4" to your include paths
 - Add "$(MSBuildProjectDirectory)\\..\build_sdk\lib\Debug\base.lib;$(MSBuildProjectDirectory)\\..\build_sdk\lib\Debug\sdk.lib;$(MSBuildProjectDirectory)\\..\build_sdk\lib\Debug\vstgui_support.lib;$(MSBuildProjectDirectory)\\..\build_sdk\lib\Debug\vstgui_uidescription.lib;$(MSBuildProjectDirectory)\\..\build_sdk\lib\Debug\vstgui.lib" to your linker additional dependencies
+- Important: In linker options -> All Options, add "/EXPORT:GetPluginFactory" to Additional Options
 - Set the project configuration type to "Dynamic Library (.dll)"
 - Set the target extension to ".vst3"
 - Build from Visual Studio
